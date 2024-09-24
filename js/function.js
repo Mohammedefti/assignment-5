@@ -21,6 +21,14 @@ function getInputFieldValueById(id) {
 //       }
 // }
 
+// active or inactive button
+// function setActiveButton(activeButton, inactiveButton) {
+//     const activeButton = document.getElementById('show-donation');
+//     const inactiveButton = document.getElementById('show-transaction');
+//     activeButton.classList.add('bg-[#B4F461]');
+//     inactiveButton.classList.remove('bg-[#B4F461]')
+// }
+
 function showSectionById(id){
 document.getElementById('content-1').classList.add('hidden');
 document.getElementById('content-2').classList.add('hidden');
@@ -45,6 +53,20 @@ function handleDonation(inputId, totalCollectionId, buttonId) {
         if (!isNaN(donationAmount) && donationAmount > 0) {
             const newTotal = currentTotal + donationAmount; // Add donation to the current total
             totalCollection.textContent = newTotal.toFixed(2); // Update total collection
+            <dialog id="my_modal_5" class="modal modal-bottom  sm:modal-middle">
+  <div class="modal-box flex flex-col justify-center items-center">
+    <h3 class="text-3xl font-bold">Congrates!</h3>
+    <img class="mt-4" src="assets/coin.png" alt=""></img>
+    <p class="py-4">You Have Donated for Humankind</p>
+    <p class="text-lg font-bold">Successfully</p>
+    <div class="modal-action">
+      <form method="dialog">
+        {/* <!-- if there is a button in form, it will close the modal --> */}
+        <a href="index.html" class="btn">Close confimation</a>
+      </form>
+    </div>
+  </div>
+</dialog>
 
             donationInput.value = ''; // Clear the input field
         } else {

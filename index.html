@@ -9,38 +9,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <title>Donation Page</title>
-    <nav class=" bg-white backdrop-blur-lg  mx-auto navbar-sticky  sticky top-0 z-50">
+    <header class="navbar-sticky   sticky top-0 z-50">
+      <nav class=" bg-white  mx-auto "></nav>
         <div class=" navbar bg-[#F9F7F3]">
             <div class="navbar-start">
-              <div class="dropdown">
-                <!-- <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M4 6h16M4 12h8m-8 6h16" />
-                  </svg>
-                </div>
-                <ul
-                  tabindex="0"
-                  class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                  <li><a>Item 1</a></li>
-                  <li>
-                    <a>Parent</a>
-                    <ul class="p-2">
-                      <li><a>Submenu 1</a></li>
-                      <li><a>Submenu 2</a></li>
-                    </ul>
-                  </li>
-                  <li><a>Item 3</a></li>
-                </ul> -->
-              </div>
+              
               <a href="blog.html" class="btn flex justify-center items-center pl-6 pr-6 bg-[#B4F461]  font-bold  btn-ghost border-r-8 text-10">Blog</a>
             </div>
             <div class="navbar-center  lg:flex">
@@ -49,19 +22,7 @@
                     <p class="font-bold text-2xl 
                    ml-2 lg:ml-5">Donate Bangladesh</p>
                 </div>
-              <!-- <ul class="menu menu-horizontal px-1">
-                <li><a>Item 1</a></li>
-                <li>
-                  <details>
-                    <summary>Parent</summary>
-                    <ul class="p-2">
-                      <li><a>Submenu 1</a></li>
-                      <li><a>Submenu 2</a></li>
-                    </ul>
-                  </details>
-                </li>
-                <li><a>Item 3</a></li>
-              </ul> -->
+              
             </div>
             <div class="navbar-end lg:mr-5">
               <div class=" flex rounded-lg bg-white">
@@ -72,11 +33,14 @@
               
             </div>
           </div>
-          <div class="flex justify-center mt-10 mb-5">
-          <button id="show-donation"  class="btn btn-active hover:bg-[#B4F461]"  >Donate</button>
-          <button id="show-transaction"  class="btn ml-5 hover:bg-[#B4F461]" >History</button>
-          </div>
+          
     </nav>
+    <div class="flex justify-center backdrop-blur-lg  bg-[rgba(255,255,255,0.8)]  pt-10 pb-5">
+          <button id="show-donation"  class="btn "  >Donate</button>
+          <button id="show-transaction"  class="btn ml-5 " >History</button>
+          </div>
+    </header>
+    
 </head>
 <body>
   <div id="content-1">
@@ -104,7 +68,10 @@
               
             </label>
           </div>
-          <button id="donation-amount-1"  class="btn w-full bg-[#B4F461]">Donate Now</button>
+          <button id="donation-amount-1" onclick="my_modal_5.showModal()" class="btn w-full bg-[#B4F461]">Donate Now</button>
+          <!-- Open the modal using ID.showModal() method -->
+
+
         </div>
       </div>
     </div>

@@ -34,14 +34,13 @@
 
 document.getElementById('show-donation').addEventListener('click', function () {
   showSectionById('content-1');
-  handleDonation('input-donation', 'total-collection', 'donation-amount-1')
-  console.log(input-donation, total-collection, donation-amount-1)
+  
   
   
 })
 
 document.getElementById('show-transaction').addEventListener('click', function () {
-  showSectionById('content-2')
+  showSectionById('content-2');
 })
 
 
