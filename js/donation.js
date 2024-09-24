@@ -31,7 +31,6 @@ function getInputFieldValue(id) {
 
 // History Added:
 function historyAdded(cardValue, location) {
-  //console.log(cardValue);
   const div = document.createElement('div');
   div.style.background = 'white';
   div.style.width = '100%';
