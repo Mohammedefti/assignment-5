@@ -1,78 +1,135 @@
-// function getInputFieldValueById() {
-//     const donateMoney = document.getElementById('input-donation').value;
-//     return donateMoney;
-// }
+// Call for removing class.
+document.getElementById("btn-donate").addEventListener('click', function () {
+  //console.log("frature Loaded");
+  hiddenClass("hidden-items");
+  addClass("history-container");
+  // Toggle button:
+  document.getElementById("btn-history").classList.remove('border-none');
+  document.getElementById("donate-btn").classList.add('bg-[#B4F461]');
+  document.getElementById("btn-history").classList.remove('bg-[#B4F461]');
+  
 
-function getInputFieldValueById(id) {
-    const inputValue = document.getElementById(id).value; 
-    return inputValue;
-}
+})
+//Call for adding class.
+document.getElementById("btn-history").addEventListener('click', function () {
+  hiddenClass("history-container");
+  addClass("hidden-items");
+  //Toggle button:
+  document.getElementById("btn-history").classList.add('bg-[#B4F461]');
+  document.getElementById("btn-donate").classList.remove('bg-[#B4F461]');
+  document.getElementById("btn-history").classList.add('border-none');
 
-// function showContent(sectionId) {
-//     // hide all section
-//     // / Hide all sections by adding the 'hidden' class
-//       const sections = document.querySelectorAll('section');
-//       sections.forEach(section => section.classList.add('hidden'));
-
-//       // Show the clicked section by removing the 'hidden' class
-//       const sectionToShow = document.getElementById(sectionId);
-//       if (sectionToShow) {
-//         sectionToShow.classList.remove('hidden');
-//       }
-// }
-
-// active or inactive button
-// function setActiveButton(activeButton, inactiveButton) {
-//     const activeButton = document.getElementById('show-donation');
-//     const inactiveButton = document.getElementById('show-transaction');
-//     activeButton.classList.add('bg-[#B4F461]');
-//     inactiveButton.classList.remove('bg-[#B4F461]')
-// }
-
-function showSectionById(id){
-document.getElementById('content-1').classList.add('hidden');
-document.getElementById('content-2').classList.add('hidden');
-// show the section with provide id as parameter
-
-document.getElementById(id).classList.remove('hidden');
-}
-
-// collected from a card
-function handleDonation(inputId, totalCollectionId, buttonId) {
-    // Get elements by their IDs
-    const donationInput = document.getElementById(inputId);
-    const totalCollection = document.getElementById(totalCollectionId);
-    const donateButton = document.getElementById(buttonId);
-
-    // Add event listener to the button
-    donateButton.addEventListener('click', function() {
-        const donationAmount = parseFloat(donationInput.value); // Get the entered donation amount
-        const currentTotal = parseFloat(totalCollection.textContent); // Get the current total collection
-
-        // Check if the donation amount is a valid number
-        if (!isNaN(donationAmount) && donationAmount > 0) {
-            const newTotal = currentTotal + donationAmount; // Add donation to the current total
-            totalCollection.textContent = newTotal.toFixed(2); // Update total collection
-            <dialog id="my_modal_5" class="modal modal-bottom  sm:modal-middle">
-  <div class="modal-box flex flex-col justify-center items-center">
-    <h3 class="text-3xl font-bold">Congrates!</h3>
-    <img class="mt-4" src="assets/coin.png" alt=""></img>
-    <p class="py-4">You Have Donated for Humankind</p>
-    <p class="text-lg font-bold">Successfully</p>
-    <div class="modal-action">
-      <form method="dialog">
-        {/* <!-- if there is a button in form, it will close the modal --> */}
-        <a href="index.html" class="btn">Close confimation</a>
-      </form>
-    </div>
-  </div>
-</dialog>
-
-            donationInput.value = ''; // Clear the input field
-        } else {
-            alert('Please enter a valid donation amount.'); // Alert if the input is invalid
-        }
-    });
-}
+})
 
 
+
+
+
+// input call for card1
+document.getElementById("donation-button-1").addEventListener('click', function () {
+
+
+  const card1Value = getInputFieldValue("input-donation-1");
+   document.getElementById("input-donation-1").value = "";
+  if (card1Value === 'null' || card1Value == 0 || isNaN(card1Value) || card1Value < 0 || card1Value == "") {
+      alert("Invalid Input.Please try again.");
+     
+  }
+  else {
+
+      const currentBalance = document.getElementById("account-balance").innerText;
+      if (parseFloat(card1Value) > parseFloat(currentBalance)) {
+          alert("Insufficient Balance! Cannot donate.");
+      }
+      else {
+          //console.log(parseFloat(card1Value));
+          updateBalance(card1Value);
+          // Update Self Card balance:
+          const selfCardBalance = document.getElementById("total-collection-1").innerText;
+          document.getElementById("total-collection-1").innerText = parseFloat(selfCardBalance) + parseFloat(card1Value);
+          // Transection history added:
+          historyAdded(card1Value, "donated for Flood at Noakhali, Bangladesh");
+          openModal();
+          
+      }
+
+  }
+
+
+
+
+
+
+
+})
+
+
+// Input call for card2
+document.getElementById("donation-button-2").addEventListener('click', function () {
+  const card2Value = getInputFieldValue("input-donation-2");
+  document.getElementById("input-donation-2").value = "";
+  if (card2Value === 'null' || card2Value == 0 || isNaN(card2Value) || card2Value < 0 || card2Value == "") {
+      alert("Invalid Input.Please try again.");
+  }
+  else {
+      const currentBalance = document.getElementById("account-balance").innerText;
+      if (parseFloat(card2Value) > parseFloat(currentBalance)) {
+
+          alert("Insufficient Balance! Cannot donate.");
+
+      }
+      else {
+
+
+          updateBalance(card2Value);
+
+          // Update Self Card balance:
+          const selfCardBalance = document.getElementById("total-collection-2").innerText;
+          // console.log(selfCardBalance);
+          document.getElementById("total-collection-2").innerText = parseFloat(selfCardBalance) + parseFloat(card2Value);
+
+          // Transection history added:
+          historyAdded(card2Value, "donated for Flood Relief in Feni,Bangladesh");
+          openModal();
+      }
+
+  }
+
+
+
+})
+
+// Input call for card3
+document.getElementById("donation-button-3").addEventListener('click', function () {
+  const card2Value = getInputFieldValue("input-donation-3");
+  document.getElementById("input-donation-3").value = "";
+  if (card2Value === 'null' || card2Value == 0 || isNaN(card2Value) || card2Value < 0 || card2Value == "") {
+      alert("Invalid Input.Please try again.");
+  }
+  else {
+      const currentBalance = document.getElementById("account-balance").innerText;
+      if (parseFloat(card2Value) > parseFloat(currentBalance)) {
+
+          alert("Insufficient Balance! Cannot donate.");
+
+      }
+      else {
+
+
+          updateBalance(card2Value);
+
+          // Update Self Card balance:
+          const selfCardBalance = document.getElementById("total-collection-3").innerText;
+          // console.log(selfCardBalance);
+          document.getElementById("total-collection-3").innerText = parseFloat(selfCardBalance) + parseFloat(card2Value);
+
+          // Transection history added:
+          historyAdded(card2Value, "Aid for Injured in the Quota Movement");
+          openModal();
+      }
+
+  }
+
+
+
+})

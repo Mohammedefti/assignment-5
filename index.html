@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" theme="white">
+<html lang="en" theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <title>Donation Page</title>
-    <header class="navbar-sticky   sticky top-0 z-50">
+    <header class="navbar-sticky  sticky top-0 z-50 ">
+      
       <nav class=" bg-white  mx-auto "></nav>
         <div class=" navbar bg-[#F9F7F3]">
             <div class="navbar-start">
@@ -36,13 +37,38 @@
           
     </nav>
     <div class="flex justify-center backdrop-blur-lg  bg-[rgba(255,255,255,0.8)]  pt-10 pb-5">
-          <button id="show-donation"  class="btn "  >Donate</button>
-          <button id="show-transaction"  class="btn ml-5 " >History</button>
+          <button id="btn-donate"  class="btn btn-active  bg-[#B4F461] border-none text-[black] font-bold" >Donate</button>
+          <button id="btn-history"  class="btn ml-5 btn-active  border border-solid border-[rgba(17, 17, 17, 0.3)] text-[#696868]" >History</button>
           </div>
     </header>
     
 </head>
 <body>
+  <main>
+    <!-- modal starts here -->
+     <!-- Modal start -->
+     <div class="absolute top-[50%] left-[50%] hidden z-50" id="call-modal">
+      <!-- Open the modal using ID.showModal() method -->
+      <dialog id="my_modal_1" class="modal">
+          <div class="modal-box text-center">
+              <h3 class="text-3xl font-bold">Congrates!</h3>
+              <img class="text-center mx-auto mt-4" src="../assets/coin.png" alt="">
+              <p class="py-4">You have donated for mankind.</p>
+              <p class="text-2xl font-bold">Suceessfully</p>
+              <div class="modal-action">
+                  <form method="dialog">
+                      <!-- if there is a button in form, it will close the modal -->
+                      <button class="btn">Close</button>
+                  </form>
+              </div>
+          </div>
+      </dialog>
+  </div>
+
+
+
+    <!-- modal ends here -->
+  
   <div id="content-1">
 
     <!-- donation card 1  -->
@@ -54,7 +80,7 @@
           <div  class="">
             <div class="lg:w-1/5 w-1/4  flex rounded-lg bg-[#F3F3F3]">
               <img class="ml-2" src="./assets/coin.png" alt="">
-            <span id="total-collection" class="ml-1">100</span>
+            <span id="total-collection-1" class="ml-1">100</span>
             <p class="ml-1">BDT</p>
             </div>
           <h3 class="text-2xl font-bold">Donate for Flood at Noakhali, Bangladesh</h3>
@@ -64,11 +90,11 @@
           <div class="mb-5 w-full">
             <label class="form-control w-full ">
               
-              <input type="text" id="input-donation" placeholder="Write Donation Amount" class="input input-bordered w-full " />
+              <input type="text" id="input-donation-1" placeholder="Write Donation Amount" class="input input-bordered w-full #B4F461" />
               
             </label>
           </div>
-          <button id="donation-amount-1" onclick="my_modal_5.showModal()" class="btn w-full bg-[#B4F461]">Donate Now</button>
+          <button id="donation-button-1" value="1" class="btn w-full bg-[#B4F461]">Donate Now</button>
           <!-- Open the modal using ID.showModal() method -->
 
 
@@ -84,7 +110,7 @@
           <div  class="">
             <div class="w-1/5 flex rounded-lg bg-[#F3F3F3]">
               <img src="./assets/coin.png" alt="">
-            <span id="total-collection2" class="ml-1">0</span>
+            <span id="total-collection-2" class="ml-1">0</span>
             <p class="ml-1">BDT</p>
             </div>
           <h3 class="text-2xl font-bold">Donate for Flood Relief in Feni,Bangladesh</h3>
@@ -94,11 +120,11 @@
           <div class="mb-5 w-full">
             <label class="form-control w-full ">
               
-              <input type="text" id="input-donation2" placeholder="Write Donation Amount" class="input input-bordered w-full " />
+              <input type="text" id="input-donation-2" placeholder="Write Donation Amount" class="input input-bordered w-full " />
               
             </label>
           </div>
-          <button class="btn w-full bg-[#B4F461]">Donate Now</button>
+          <button id="donation-button-2" value="2" class="btn w-full bg-[#B4F461]">Donate Now</button>
         </div>
       </div>
     </div>
@@ -111,7 +137,7 @@
           <div  class="">
             <div class="w-1/5 flex rounded-lg bg-[#F3F3F3]">
               <img src="./assets/coin.png" alt="">
-            <span class="ml-1">0</span>
+            <span class="total-collection-3">0</span>
             <p class="ml-1">BDT</p>
             </div>
           <h3 class="text-2xl font-bold">
@@ -123,11 +149,11 @@
           <div class="mb-5 w-full">
             <label class="form-control w-full ">
               
-              <input type="text" placeholder="Write Donation Amount" class="input input-bordered w-full " />
+              <input type="text" id="input-donation-3" placeholder="Write Donation Amount" class="input input-bordered w-full " />
               
             </label>
           </div>
-          <button class="btn w-full bg-[#B4F461]">Donate Now</button>
+          <button id="donation-button-3" value="3" class="btn w-full bg-[#B4F461]">Donate Now</button>
         </div>
       </div>
     </div>
@@ -135,11 +161,12 @@
 
     <!-- history section -->
      <div id="content-2" class="hidden w-11/12 mx-auto">
-      <h2>Transaction Summary</h2>
-      <div id="transaction-container">
+      
+      <div id="history-container">
 
       </div>
      </div>
+     </main>
     <!-- js file-->
      <script src="./js/donation.js"></script>
      <script src="./js/function.js"></script>
