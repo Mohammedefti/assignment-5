@@ -1,7 +1,7 @@
 // Call for removing class.
 document.getElementById("btn-donate").addEventListener('click', function () {
   //console.log("frature Loaded");
-  hiddenClass("hidden-items");
+  hiddenClass("content-1");
   addClass("history-container");
   // Toggle button:
   document.getElementById("btn-history").classList.remove('border-none');
@@ -14,7 +14,7 @@ document.getElementById("btn-donate").addEventListener('click', function () {
 //Call for adding class.
 document.getElementById("btn-history").addEventListener('click', function () {
   hiddenClass("history-container");
-  addClass("hidden-items");
+  addClass("content-1");
   //Toggle button:
   document.getElementById("btn-history").classList.add('bg-[#B4F461]');
   document.getElementById("btn-donate").classList.remove('bg-[#B4F461]');
