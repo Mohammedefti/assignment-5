@@ -5,7 +5,8 @@ document.getElementById("btn-donate").addEventListener('click', function () {
   addClass("history-container");
   // Toggle button:
   document.getElementById("btn-history").classList.remove('border-none');
-  document.getElementById("donate-btn").classList.add('bg-[#B4F461]');
+  document.getElementById("btn-donate").classList.add('bg-[#B4F461]');
+  document.getElementById("btn-donate").classList.add('bg-[#B4F461]');
   document.getElementById("btn-history").classList.remove('bg-[#B4F461]');
   
 
